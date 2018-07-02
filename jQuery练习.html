@@ -1,0 +1,199 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery的练习</title>
+<script src="js/jquery-1.11.0.js"></script>
+
+<style type="text/css">
+    .col{
+        color:red;
+        font-size:28px;
+    }
+    .p1,.p2{
+    	color:red;
+    	font-size: 18px;
+    }
+    
+</style>
+</head>
+<body>
+    <h3>1:text() - 设置或返回所选元素的文本内容;
+    html() - 设置或返回所选元素的内容（包括 HTML 标记）
+    </h3>
+    <div>
+        <p id="p3">
+        	这是段落中的<b>粗体</b>文本
+        </p>
+        <button id="p1">显示文本</button>
+        <button id="p2">显示HTML</button>
+    </div>
+    <br/><hr>
+    <h3>2:val() - 设置或返回表单字段的值</h3>
+    <div>
+        名称：<input type="text" id="b2" value="源码时代"/>
+        <button id="b1">显示值</button>
+    </div>
+    <h3>3:获取属性 - attr();jQuery attr() 方法用于获取属性值。</h3>
+    <div>
+    <a id="a2" href="http://www.itsource.cn">源码时代</a><br/>
+    <button id="a1">显示href属性的值</button>
+    </div>
+    <br><hr>
+    <h3>4:设置内容 - text()、html() 以及 val();
+        text() - 设置或返回所选元素的文本内容;
+        html() - 设置或返回所选元素的内容（包括 HTML 标记）;
+        val() - 设置或返回表单字段的值
+    </h3>
+    <div>
+        <p class="p1">这是一个段落</p>    
+        <p class="p2"><b>这是另一个段落</b></p>
+        输入框：<input class="p3" type="text" value="源码时代"/>
+        <button class="b1">设置文本</button>
+        <button class="b2">设置HTML</button>
+        <button class="b3">设置值</button>
+    </div>
+    <br/><hr>
+    <h3>5:append() - 在被选元素的结尾插入内容;
+        prepend() - 在被选元素的开头插入内容;
+        after() - 在被选元素之后插入内容;
+        before() - 在被选元素之前插入内容
+    </h3>
+    <p class="s2">源码时代</p>
+    <button class="s1">末尾添加文本</button>
+    <p class="f2">源码时代</p>
+    <button class="f1">开头插入文本</button>
+    <br/>
+    <img src="img/1.png"/><br/>
+    <button id="q1">之前</button>
+    <button id="q2">之后</button>
+    <br><hr>    
+    <h3>6:remove() - 删除被选元素（及其子元素）;empty() - 从被选元素中删除子元素
+    </h3>
+    <div id="g2" style="width:200px;height:200px;background-color:pink">
+        <p>源码时代棒棒哒</p>
+        <p>我要成为源码人</p>
+        <p>为了源码而奋斗</p>
+    </div>
+    <button id="g1">删除</button>
+    <hr>
+    <div id="k2" style="width:200px;height:200px;background-color:pink">
+        <p>源码时代棒棒哒</p>
+        <p>我要成为源码人</p>
+        <p>为了源码而奋斗</p>
+    </div>
+    <button id="k1">删除</button>
+    <br><hr>
+    <h3>7:addClass() - 向被选元素添加一个或多个类;
+        removeClass() - 从被选元素删除一个或多个类;
+        toggleClass() - 对被选元素进行添加/删除类的切换操作;
+        css() - 设置或返回样式属性;
+    </h3>
+    <h2>源码时代</h2>
+    <i>源码人</i><br/>
+    <button id="c1">为元素添加css样式</button>    
+    <button id="c2">删除第一个元素的css样式</button><br/>    
+    <h4>源码人加油！！！</h4>
+    <button id="c3">切换css</button>
+    <br><hr>
+    <h3>
+        8:css() 方法设置或返回被选元素的一个或多个样式属性。
+    </h3>
+    <div>
+        <p style="background-color:red;">源码时代</p>
+        <p style="background-color:yellow;">源码时代</p>
+        <p style="background-color:pink;">源码时代</p>
+        <p style="background-color:blue;">源码时代</p>
+    </div>
+    <button id="d1">设置css样式</button>
+    
+    
+    <!-- 编写脚本实现上述需求 -->
+    <script language="javascript">
+    	//第一题
+    	var p3=document.getElementById("p3");
+    	var p1=document.getElementById('p1');
+    	p1.addEventListener('click',function(){
+    		alert(p3.innerText);
+    	})
+		
+		var p3=document.getElementById("p3");
+		var p2=document.getElementById("p2");
+		p2.addEventListener('click',function(){
+			alert(p3.innerHTML);
+		})
+    	
+    	//第二题
+    	var b1=document.getElementById('b1');
+    	var b2=document.getElementById("b2").value;
+    	b1.addEventListener('click',function(){
+    		alert(b2.valueOf());
+    	})
+    	
+    	//第三题  
+    	var a2=document.getElementById('a2');
+    	var a1=document.getElementById('a1');
+    	a1.addEventListener('click',function(){
+    		alert(a2.href);
+    	})
+    	
+    	//第四题
+    	$(".b1").click(function(){
+    		$(".p1").text("我是设置文本");
+    	})
+    	$(".b2").click(function(){
+    		$(".p2").html("<b>我是设置html</b>");
+    	})
+    	$('.b3').click(function(){
+    		$('.p3').val("我是设置值");
+    	})
+		
+		
+    	//第五题
+    	$(".s1").click(function(){
+    		$(".s2").append("<b>在后面添加</b>");
+    	})
+		
+		$('.f1').click(function(){
+			$('.f2').prepend("<b>在前面添加</b>")
+		})
+
+		$('#q1').click(function(){
+			$('img').before("<b>前面文字</b>");
+		})
+		
+		$('#q2').click(function(){
+			$('img').after("<b>后面文字</b>");
+		})
+		
+		//第六题
+		$('#g1').click(function(){
+			$('#g2').remove();
+		})
+		$('#k1').click(function(){
+			$('#k2').find('p').remove();
+		})
+		
+		//第七题
+		$('#c1').click(function(){
+			$('h2,i').addClass('col');
+		})
+		$('#c2').click(function(){
+			$('h2').removeClass('col');
+		})
+		$('#c3').click(function(){
+			$('h4').toggleClass('col'); 
+		})
+		$('#d1').click(function(){
+			$('p').css({'background':'black','color':'white'});
+		});
+    </script>
+    <!--
+    	jQuery重点整理
+    		选择器     ： $('选择器')
+    		事件监听：  $('选择器').click(事件响应函数)
+    		
+    		提示：上述需求，都可以在jQuery.api中查询得到
+    -->
+    
+</body>
+</html>
