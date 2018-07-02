@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+		<title></title>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src='js/index.js'></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body,.box{
+				height: 100%;
+			}
+			.box{
+				background-color: #DDDDDD;
+			}
+			header{
+				
+			}
+			header h2{
+			background-color: #0F4D92;
+			color : #fff;
+			text-shadow: 6px 7px 4px #000;
+			padding: 10px 0;
+			text-align: center;
+			}
+			nav{
+				
+			}
+			nav ul{
+			background-color: #686868;
+			text-align: center;	
+			}
+			nav ul li{
+			display: inline;
+			}
+			nav ul li a{
+			display: inline-block;
+			color: #fff;
+			text-decoration: none;
+			background-color: #444444;
+			border-radius: 10px;
+			padding: 5px 10px;
+			margin: 5px 10px;
+			cursor: pointer;
+			}
+			nav .one{
+			background-color: #222;
+			color : #0D90BD;
+			}
+			article{
+			background-color: #fff;
+			border-bottom: 1px solid #ccc;
+			}
+			.ww{
+				clear: both;
+			}
+			.leftBox{
+			padding: 10px;
+			float: left;
+			}
+			.centerBox{
+			padding:5px;
+			float: left;
+			}
+			.centerBox time{
+			font-size: 0.8em;
+			color: #aaa;
+			}
+			.rightBox{
+			float: right;
+			}
+			.rightBox button{
+			background-color: #AD390C;
+			color:#fff;
+			padding: 5px;
+			margin: 10px;
+			border-radius: 7px;	
+			}
+			section p{
+				margin-left: 20px;
+				margin-top: 10px;
+			}
+			section #content{
+				font-size: 30px;
+				width: 411px;
+				height: 480px;
+			}
+			section #datatime-local{
+				margin-left: 70px;
+				margin-top: 35px;
+				
+			}
+			#addTaskBtn{
+			background-color: green;
+			width: 300px;
+			height: 50px;
+			margin-left: 50px;
+			color:black;
+			border-radius: 7px;	
+			margin-top: 20px;
+			font-size: 10px;
+			
+			}
+			
+			#addTask{
+				display: none;
+			}
+			#addTask hr{
+				margin: 0;
+				
+			}
+			#setting{
+				display: none;
+			}
+			.o1{
+				margin-top: 5px;
+				position: relative;
+				float: left;
+			}
+			.o2{
+				margin-top: 5px;
+				position: relative;
+				float: right;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<header>
+				<h2>
+					希望清单
+				</h2>
+			</header>
+			
+			<nav>
+				<ul>
+					<li><a href="#" class="one" data-cmd="listTask">任务列表</a></li>
+					<li><a href="#" data-cmd="addTask">添加任务</a></li>
+					<li><a href="#" data-cmd="setting">系统设置</a></li>
+				</ul>
+			</nav>
+			
+			<section id="listTask">
+				<article>
+					<!--<div class="leftBox">
+						<input type="checkbox" />
+					</div>-->
+					<div class="centerBox">
+						<h3 style="margin-left: 120px;">Literacy Memory</h3>
+						<time style="margin-left: 175px;color: #000000;">Y | M | D</time>
+					</div>
+					<!--<div class="rightBox">
+						<button id="rightBox-button">删除</button>
+					</div>-->
+					<div class="ww"></div>
+				</article>
+			</section>
+			
+			<section id="addTask">
+				
+				<textarea id="content"value="内容"></textarea>
+				<hr />
+			
+				<input type="datetime-local" id="datatime-local" value="年\月\日" style="color: gray"/>
+				
+			<div class="o1"><hr width="50"  /></div>
+			<div class="o2"><hr width="50"  /></div>
+						
+			
+				<div class="button">
+					<button id="addTaskBtn"><p style="font-size: 30px;padding-top: -60px;">提交</p></button>
+				</div>
+			</section>
+			<section id="setting">
+				<h1>系统设置</h1>
+				<input type="color" />
+			</section>
+		</div>
+				
+			
+				
+		
+	</body>
+</html>
