@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>h</title>
+		<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		</style>
+		<script>
+		onload=function(){
+			var palette =
+			document.getElementById("canv").getContext("2d");
+			var width=document.body.clientWidth;
+			var height=document.body.clientHeight;
+			var ArrY=new Array();
+			for(var i = 0; i < 512 ; i++){
+				ArrY[i]=0;
+			}
+			var write = function(){
+				palette.fillStyle= 'rgba(0,0,0,.1)';
+				palette.fillRect(0,0,1890,height);
+				palette.fillStyle='green';
+				palette.font='16px Times'
+				ArrY.map(function(ycode,index){
+					var text = Math.random() >0.2 ? 1 :2;
+					var xcode=index *12;
+					palette.fillText(text,xcode,ycode);
+					if  (ycode >720 +Math.random() *3000){
+						ArrY[index]=0;
+					} else {
+						ArrY[index]=ArrY[index]+20;
+					}
+				});
+			}
+		setInterval(write,150);
+		}
+	</script>
+</head>
+<body>
+	<div style="background-color:1500black;width:1000px;height:1000px">
+	<canvas id="canv" width="1890" height="1000"></canvas>
+	</div>
+</body>
+
+</html>
