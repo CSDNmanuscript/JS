@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>云音乐播放</title>
+	<!-- css样式 层叠样式表 一件美丽的外衣
+		margin:上下 左右; auto自动填充 -->
+  <style>
+
+	body{margin:0;background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530795139988&di=a52bc60b8a574f01ba04f67b3757707f&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F57eb325c2e628.jpg");background-size:110%;background-repeat: no-repeat;}
+
+	#music{width:900px;height:596px;background:#666666;margin:200px auto;border-radius:6px;overflow:hidden;box-shadow:0px 0px 8px #000;opacity:0.9;}
+	
+	/*left*/
+	#music .m-left{width:650px;height:520px;background:url("images/music.gif")center;float:left;}
+
+	/*right*/
+	#music .m-right{width:250px;height:520px;background:#b4b4b4;float:right;}
+	#music .m-right ul{list-style:none;padding:0;width:140px;margin:40px auto 12px;text-align:center;border-bottom:1px solid #e8e8e8;}
+	#music .m-right ul li img{border-radius:50%;width: 121px;height: 121px;}
+	#music .m-right ul li:nth-child(2){line-height:50px;font-weight:700;font-size: 25px; font-family:"华文行楷"}
+	#music .m-right .text{width:100%;height:290px;text-align:center;color:#000000;overflow-y:auto;}
+	#music .m-bottom #play{margin: 15px 400px;width: 36px;height:40px; position: absolute;background: url("images/play.png"); border: none ;background-size:contain;background-repeat: no-repeat;}
+
+	/*bottom*/
+	#music .m-bottom{width:100%;height:80px;float:right;background:url("images/fbg.png");}
+
+	/*Irc color*/
+	.color{color:#003B65;font-size:22px;font-weight: 700;} 
+  </style> 
+  <link rel="stylesheet" href="css/animate.css">
+ </head>
+ <body>
+	
+	<!-- div 盒子 容器 层 -->
+	<div id="music">
+		<div class="m-left">
+		<textarea id="Irc" style="width:380px;heigth:290px;display:none;">
+				[ti:像风一样]
+				[ar:薛之谦]
+				[al:渡]
+				[by:]
+				[offset:0]
+				[00:01.69]像风一样
+				[00:02.22]
+				[00:02.71]作词：薛之谦
+				[00:03.27]作曲：薛之谦
+				[00:03.71]演唱：薛之谦
+				[00:04.37]
+				[00:31.75]我等的模样好不具象
+				[00:39.61]用皮肤感受你的流向
+				[00:46.35]你竟然能做到带走阳光
+				[00:53.81]我一味的跟随过了量
+				[01:00.05]
+				[01:03.49]像风一样
+				[01:06.31]你靠近云都下降
+				[01:10.09]你卷起千层海浪
+				[01:14.21]我躲也不躲往里闯
+				[01:18.45]你不就像风一样
+				[01:22.42]侵略时沙沙作响
+				[01:26.70]再宣布恢复晴朗
+				[01:30.76]就好像我们两个没爱过一样
+				[01:37.32]
+				[01:44.81]曲折的夕阳负责格挡
+				[01:52.61]让委屈的感官无法释放
+				[01:59.70]最近我的伤口没生长
+				[02:06.33]因为我躲在没风的地方
+				[02:14.30]
+				[02:16.67]像风一样
+				[02:19.24]你靠近云都下降
+				[02:23.26]你卷起千层海浪
+				[02:27.23]我躲也不躲往里闯
+				[02:31.39]你不就像风一样
+				[02:35.42]侵略时沙沙作响
+				[02:39.43]再宣布恢复晴朗
+				[02:43.46]就好像我们两个没爱过一样
+				[02:50.74]
+				[02:53.10]你像风一样
+				[02:55.78]触摸时温柔流淌
+				[02:59.89]席卷我所有抵抗不急着要我投降
+				[03:08.00]你不就像风一样
+				[03:12.07]掠夺时沙沙作响
+				[03:16.19]可惜我自投罗网
+				[03:20.16]你也就没什么可骄傲的地方
+				[03:27.85]
+				[03:33.67]和风一样
+				[03:36.91]你离开不声不响
+				[03:41.29]我喜欢这种收场
+				[03:45.71]看上去谁也不曾亏欠过对方
+				[03:55.29]
+				[03:57.46]制作人：薛之谦
+				[03:57.90]编曲：张宝宇 郑伟
+				[03:58.34]混音：郑伟
+				[03:58.83]合音：薛之谦
+				[03:59.32]鼓：褚伟明
+				[03:59.76]bass：宣一亨
+				[04:00.19]吉他：孙闻楠
+				[04:00.64]人声录制：莫家伟（上海广播大厦200studio）
+				[04:01.08]乐器录制：吴身宝（soundhub studio）
+				[04:01.48]母带制作：Ted Jensen
+				[04:01.89]
+
+		</textarea>
+		</div>
+		<div class="m-right">
+			<ul>
+				<!-- 
+					 img四要素 src width height alt
+					 用户体验
+				-->
+				<li><img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000001L7UIu3GXVtT.jpg?max_age=2592000" width="" height="" alt=""></li>
+				<li>像风一样</li>
+			</ul>
+			<div class="text">
+			
+			</div>
+		</div>
+		<div class="m-bottom" ><input id="play" type="button" value="" /></div>
+	</div>
+	<!--end music -->
+
+	<audio src="music/薛之谦 - 像风一样.flac" id="myMusic"></audio>
+	<!-- Javascript-->
+	<script src="js/jquery.js"></script>
+	<script>
+	//解析歌词
+	//获取歌词
+	var Irc=$("#Irc").val();
+	//对歌词分割
+	var IrcArr=Irc.split("[");
+	var html = "";
+	for(var i=0,len = IrcArr.length;i<len;i++){
+		//第二次切割
+		var arr = IrcArr[i].split("]");
+		//获取时间
+		var timer = arr[0].split(".");
+		var stimer = timer[0].split(":");
+		//将所有的时间转换成秒
+		var ms = stimer[0]*60+stimer[1]*1;
+		//获取歌词
+		var message =arr[1];
+		if(message){
+			html+="<p id='"+ms+"'>"+message+"</p>";
+		}
+		$(".text").html(html);
+	}
+
+
+
+
+
+
+	//判断
+	var flag =0;
+	//点击按钮
+	$("#play").click(function(){
+	  if(flag==0){
+	    $("#myMusic").get(0).play();
+		flag =1;
+	  }else{
+			$("#myMusic").get(0).pause();
+			flag =0;
+	   
+	   }
+	});
+
+	//监听歌词的播放时间
+	$("#myMusic").get(0).addEventListener("timeupdate",function(){
+		//获取当前音乐播放时间
+		var timer = this.currentTime;
+		var s=parseInt(timer);
+		for(var i=0;i<s;i++){
+			$("#"+i).addClass("color animated swing").siblings().removeClass("color");
+		}
+		
+		$(".text").scrollTop(($(".color").index()-8)*25);
+		
+	
+	});
+	
+	
+
+	</script>
+ </body>
+</html>
