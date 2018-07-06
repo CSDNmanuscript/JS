@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
+  <meta name="Author" content="范佳鑫">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>云音乐播放</title>
@@ -24,13 +24,21 @@
 	#music .m-right ul li img{border-radius:50%;width: 121px;height: 121px;}
 	#music .m-right ul li:nth-child(2){line-height:50px;font-weight:700;font-size: 25px; font-family:"华文行楷"}
 	#music .m-right .text{width:100%;height:290px;text-align:center;color:#000000;overflow-y:auto;}
-	#music .m-bottom #play{margin: 15px 400px;width: 36px;height:40px; position: absolute;background: url("images/play.png"); border: none ;background-size:contain;background-repeat: no-repeat;}
+	#music .m-bottom #play{margin: 15px 400px;width: 36px;height:40px; position: absolute;background: url("images/play.png"); border: none ;background-size:contain;background-repeat: no-repeat;outline: none;}
 
 	/*bottom*/
 	#music .m-bottom{width:100%;height:80px;float:right;background:url("images/fbg.png");}
 
 	/*Irc color*/
 	.color{color:#003B65;font-size:22px;font-weight: 700;} 
+
+	/*旋转动画*/
+	.ranBox{animation:ranBox 0.5s linear;}
+	
+	@keyframes ranBox{
+		from{transform:rotate(0deg);width: 36px;height:40px;}
+		to{transform:rotate(360deg);width: 60px;height:70px;margin: 0px 395px;}
+	}
   </style> 
   <link rel="stylesheet" href="css/animate.css">
  </head>
@@ -119,11 +127,11 @@
 			
 			</div>
 		</div>
-		<div class="m-bottom" ><input id="play" type="button" value="" /></div>
+		<div class="m-bottom" ><div id="play"></div></div>
 	</div>
 	<!--end music -->
 
-	<audio src="music/薛之谦 - 像风一样.flac" id="myMusic"></audio>
+	<audio src="http://zhangmenshiting.qianqian.com/data2/music/395196c7eb1cdf6000603a758f3699b2/594537724/594537724.mp3?xcode=4bd9f9dde09ce37ec70098e904ce32a9" id="myMusic"></audio>
 	<!-- Javascript-->
 	<script src="js/jquery.js"></script>
 	<script>
@@ -158,10 +166,15 @@
 	var flag =0;
 	//点击按钮
 	$("#play").click(function(){
+		
 	  if(flag==0){
+	  		$("#play").toggleClass("ranBox");
 	    $("#myMusic").get(0).play();
 		flag =1;
 	  }else{
+	  		
+	  		$("#play").toggleClass("ranBox");
+	  		
 			$("#myMusic").get(0).pause();
 			flag =0;
 	   
