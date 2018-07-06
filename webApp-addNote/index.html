@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>web自定义标签</title>
+  <style>
+	*{margin:0;padding:0;}/*解决浏览器的兼容性问题*/
+	body{background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530795139988&di=a52bc60b8a574f01ba04f67b3757707f&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F57eb325c2e628.jpg");background-size:cover;}
+
+	
+	.menu{width:200px;background:linear-gradient();box-shadow:1px 1px 8px #000;border-radius:8px;display:none;position:absolute;z-index:99;}
+	.menu ul li{list-style:none;line-height:40px;padding-left:20px;transition:0.3s;color:#f5f5f5;}
+	.menu ul li:hover{background:#6db6b6;cursor:pointer;color:#fff;text-indent:10px;transition:0.3s;}
+
+	.note{width:294px;height:240px;background:url("images/1.png");padding-top:70px;position:absolute;}
+	.note .content{width:254px;height:206px;margin:auto;outline:none;}
+
+	
+	/*旋转动画*/
+	.ranBox{animation:ranBox 0.5s linear;}
+	.ranBox1{animation:ranBox1 0.5s linear;}
+	@keyframes ranBox{
+		from{transform:rotate(0deg);}
+		to{transform:rotate(360deg);}
+	}
+	@keyframes ranBox1{
+		from{transform:rotateX(0deg);}
+		to{transform:rotateX(360deg);}
+	}
+
+
+
+
+  </style>
+  <link rel="stylesheet" href="css/animate.css">
+ </head>
+ <body>
+
+	
+		
+
+	<div class="menu">
+		<ul>
+			<li>打开</li>
+			<li>百度地图</li>
+			<li onclick="aadNote()">添加便签</li>
+			<li onclick="removeNote()">清空便签</li>
+			<li>添加music应用</li>
+			<li>添加计算器</li>
+			<li>注销</li>
+		</ul>
+	</div>
+		
+
+  <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"> </script>
+  <script>
+  
+  	//屏蔽浏览器右键菜单
+  	document.oncontextmenu = function(){
+  		return false;
+  	}
+  
+  	//鼠标按下右键
+  	$(document).mousedown(function(e){
+		//鼠标事件源e
+		var key=e.which;
+		if(key==3){
+			var x= e.clientX;
+			var y= e.clientY;
+			
+			//方向词去控制盒子的位置 定位 
+
+
+			//显示右键菜单
+				$(".menu").css({left:x,top:y});
+				$(".menu").fadeIn();   
+				
+						<!-- fadeIn()也可以使用show()来代替 -->
+				
+
+			
+		}else if(key==1){
+			$(".menu").fadeOut("fast");
+		}
+	});
+	
+	//添加便签
+	function aadNote(){
+		//获取当前菜单位置
+		var left = $(".menu").offset().left;
+		var top = $(".menu").offset().top;
+		$("body").append("<div class='note animated wobble' style='left:"+left+"px;top:"+top+"px'>"+
+							"<div class='content' contenteditable='true'></div>"+
+						  "</div>");
+	};
+
+
+	//清空便签
+	function removeNote(){
+		//$(".note").removeClass("animated wobble").addClass("animated pulse").fadeOut();
+		$(".note").addClass("animated fadeOutDown");
+	}
+  
+  
+  </script>
+ </body>
+</html>
